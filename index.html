@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sridevi | Developer Portfolio</title>
+
+<style>
+    .profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ff4fd8;
+    box-shadow: 0 0 25px #b44dff;
+
+    position: absolute;
+    left: 105%;
+    top: 10%;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --pink: #ff5ca8;
+    --purple: #8b5cf6;
+    --blue: #4169ff;
+    --white: #ffffff;
+    --muted: #c5c6d4;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--white);
+    background: #070817;
+    overflow-x: hidden;
+}
+
+/* ANIMATED BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 5% 35%,
+            rgba(255, 55, 140, 0.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 90% 45%,
+            rgba(70, 50, 255, 0.22),
+            transparent 40%
+        ),
+        #070817;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(255, 60, 160, 0.10),
+        transparent,
+        rgba(90, 60, 255, 0.13),
+        transparent
+    );
+
+    filter: blur(70px);
+    animation: rotateGlow 18s linear infinite;
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* NAVBAR */
+
+nav {
+    min-height: 85px;
+    padding: 22px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+
+    background: linear-gradient(
+        90deg,
+        var(--pink),
+        var(--purple)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav ul a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul a:hover {
+    color: var(--pink);
+}
+
+.nav-button {
+    padding: 13px 22px;
+    border-radius: 10px;
+    background: linear-gradient(
+        100deg,
+        var(--pink),
+        var(--purple)
+    );
+
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(255, 92, 168, 0.5);
+}
+
+/* HOME SECTION */
+
+section {
+    padding: 90px 8%;
+    scroll-margin-top: 30px;
+}
+
+#home {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.intro {
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+    animation: slideIn 1s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome {
+    color: var(--pink);
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 28px;
+}
+
+h1 {
+    font-size: clamp(48px, 8vw, 90px);
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+
+#changing-name {
+    background: linear-gradient(
+        90deg,
+        #ff789f,
+        #d76bff,
+        #7865ff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    border-right: 4px solid var(--pink);
+    padding-right: 5px;
+    overflow-wrap: anywhere;
+}
+
+.role {
+    font-size: clamp(17px, 2vw, 23px);
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.description {
+    max-width: 550px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 27px;
+    border: 1px solid var(--pink);
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: 0.35s;
+}
+
+.primary {
+    background: linear-gradient(
+        100deg,
+        var(--pink),
+        var(--purple)
+    );
+    border: none;
+}
+
+.button:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 0 25px rgba(183, 70, 255, 0.45);
+}
+
+/* FLOATING PARTICLES */
+
+.particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+
+    background: var(--pink);
+    box-shadow: 0 0 15px var(--pink);
+
+    animation: floatParticle 6s ease-in-out infinite;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 65%;
+}
+
+.particle:nth-child(2) {
+    top: 35%;
+    left: 85%;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(3) {
+    top: 65%;
+    left: 70%;
+    animation-delay: 2s;
+}
+
+.particle:nth-child(4) {
+    top: 80%;
+    left: 90%;
+    animation-delay: 3s;
+}
+
+.particle:nth-child(5) {
+    top: 48%;
+    left: 55%;
+    animation-delay: 1.5s;
+}
+
+.particle:nth-child(6) {
+    top: 15%;
+    left: 45%;
+    animation-delay: 2.5s;
+}
+
+@keyframes floatParticle {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(-35px);
+        opacity: 1;
+    }
+}
+
+/* NEON WAVE */
+
+.wave {
+    position: absolute;
+    width: 110%;
+    height: 220px;
+    left: -5%;
+    bottom: -40px;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.wave svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.wave path {
+    fill: none;
+    stroke-width: 1.5;
+    stroke: #a855f7;
+    opacity: 0.5;
+
+    animation: waveMove 5s ease-in-out infinite alternate;
+}
+
+.wave path:nth-child(2n) {
+    stroke: #ff5ca8;
+    opacity: 0.7;
+    animation-delay: -2s;
+}
+
+.wave path:nth-child(3n) {
+    stroke: #536dff;
+    opacity: 0.45;
+    animation-delay: -1s;
+}
+
+@keyframes waveMove {
+    from {
+        transform: translateY(-10px);
+    }
+
+    to {
+        transform: translateY(15px);
+    }
+}
+
+/* SECTION HEADINGS */
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 40px;
+}
+
+.section-title span {
+    color: var(--pink);
+}
+
+/* ABOUT */
+
+.about-card {
+    max-width: 850px;
+    margin: auto;
+    padding: 35px;
+    border: 1px solid rgba(255, 92, 168, 0.3);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(10px);
+
+    line-height: 1.9;
+    color: var(--muted);
+}
+
+/* SKILLS */
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.skill {
+    padding: 18px 28px;
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    border-radius: 12px;
+
+    background: rgba(139, 92, 246, 0.08);
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-8px);
+    border-color: var(--pink);
+    box-shadow: 0 0 20px rgba(255, 92, 168, 0.2);
+}
+
+/* PROJECTS */
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(240px, 1fr)
+    );
+    gap: 25px;
+}
+
+.project-card {
+    padding: 28px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+
+    transition: 0.35s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--pink);
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.2);
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    color: #e5a0ff;
+}
+
+.project-card p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.project-card a {
+    color: var(--pink);
+    text-decoration: none;
+}
+
+/* CONTACT */
+
+.contact-box {
+    text-align: center;
+    line-height: 2;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 700px) {
+    nav {
+        justify-content: center;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    #home {
+        min-height: 75vh;
+    }
+
+    .welcome {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .wave {
+        height: 130px;
+    }
+
+    .about-card {
+        padding: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">Sridevi</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#projects" class="nav-button">Explore Projects ↗</a>
+</nav>
+
+<!-- HOME -->
+
+<section id="home">
+
+    <div class="particles">
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+    </div>
+
+    <div class="intro">
+
+        <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+
+        <h1>
+            Hi, I'm<br>
+            <span id="changing-name"></span>
+        </h1>
+        <div class="profile-photo">
+    <img src="sridevi.jpg.png" alt="Sridevi's Profile Photo">
+</div>
+
+        <p class="role">
+            Web Developer | Python Developer
+        </p>
+
+        <p class="description">
+            I'm a second-year Computer Science Engineering student
+            who loves building creative websites and learning new
+            technologies.
+        </p>
+
+        <div class="buttons">
+            <a href="https://www.linkedin.com/in/sri-devi-19064b381/"
+   class="button"
+   target="_blank"
+   rel="noopener noreferrer">
+   LinkedIn ↗
+</a>
+<a href="https://github.com/srisandhiya102-arch"
+   class="button"
+   target="_blank"
+   rel="noopener noreferrer">
+   GitHub ↗
+</a>
+            <a href="#projects" class="button primary">
+                Explore My Projects →
+            </a>
+
+            <a href="#contact" class="button">
+                Contact Me
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Animated neon wave -->
+
+    <div class="wave">
+        <svg viewBox="0 0 1440 250"
+             preserveAspectRatio="none">
+
+            <path d="M0,150 C180,50 300,230 500,140 S800,40 1000,150 S1250,220 1440,70"/>
+            <path d="M0,170 C180,70 300,250 500,160 S800,60 1000,170 S1250,240 1440,90"/>
+            <path d="M0,190 C180,90 300,270 500,180 S800,80 1000,190 S1250,260 1440,110"/>
+            <path d="M0,130 C180,30 300,210 500,120 S800,20 1000,130 S1250,200 1440,50"/>
+            <path d="M0,210 C180,110 300,290 500,200 S800,100 1000,210 S1250,280 1440,130"/>
+            <path d="M0,110 C180,10 300,190 500,100 S800,0 1000,110 S1250,180 1440,30"/>
+
+        </svg>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        About <span>Me</span>
+    </h2>
+
+    <div class="about-card">
+        Hi! I'm Sridevi Balasubramaniyan, a second-year
+        B.E. Computer Science Engineering student.
+
+        I enjoy developing websites and learning programming.
+        My current skills include HTML, CSS, Python, and Flask.
+        I'm also improving my JavaScript skills and working
+        toward becoming a full-stack developer.
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2 class="section-title">
+        My <span>Skills</span>
+    </h2>
+
+    <div class="skills-container">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">Python</div>
+        <div class="skill">Flask</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">GitHub</div>
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <h2 class="section-title">
+        My <span>Projects</span>
+    </h2>
+
+    <div class="projects-container">
+
+        <div class="project-card">
+            <h3>Stock Scanner</h3>
+
+            <p>
+                A Python and Flask web application for displaying
+                stock scanner results through a web interface.
+            </p>
+
+            <a href="https://github.com/srisandhiya102-arch/stock_scanner"
+               target="_blank"
+               rel="noopener noreferrer">
+                View on GitHub →
+            </a>
+        </div>
+
+        <div class="project-card">
+            <h3>Personal Portfolio</h3>
+
+            <p>
+                A responsive portfolio website showcasing my
+                skills, projects, and developer journey.
+            </p>
+
+            <a href="#home">Explore Portfolio →</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2 class="section-title">
+        Contact <span>Me</span>
+    </h2>
+
+    <div class="contact-box">
+
+        <p>
+            Interested in working together or discussing an opportunity?
+        </p>
+
+        <!-- Replace this with your actual email address -->
+
+        <a href="mailto:srisandhiya102@gmailS.com"
+           class="button primary">
+            Send Me an Email →
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Sridevi Balasubramaniyan | Developer Portfolio
+</footer>
+
+<!-- NAME TYPING ANIMATION -->
+
+<script>
+const names = [
+    "Sridevi",
+    "Web Developer",
+    "Python Developer",
+    "Software Developer"
+];
+
+let nameIndex = 0;
+let letterIndex = 0;
+let deleting = false;
+
+const nameElement = document.getElementById("changing-name");
+
+function changeName() {
+
+    const currentName = names[nameIndex];
+
+    if (deleting) {
+        letterIndex--;
+    } else {
+        letterIndex++;
+    }
+
+    nameElement.textContent =
+        currentName.substring(0, letterIndex);
+
+    let speed = deleting ? 50 : 100;
+
+    if (!deleting && letterIndex === currentName.length) {
+
+        deleting = true;
+        speed = 1200;
+
+    } else if (deleting && letterIndex === 0) {
+
+        deleting = false;
+        nameIndex = (nameIndex + 1) % names.length;
+        speed = 300;
+
+    }
+
+    setTimeout(changeName, speed);
+}
+
+changeName();
+</script>
+
+</body>
+</html>
